@@ -696,35 +696,38 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
     position: relative;
   }
 
-  .nav-links {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    /* CAMBIO CLAVE: Fondo 100% opaco usando tu color tierra */
-    background: var(--earth); 
-    flex-direction: column; 
+.nav-links {
+    position: fixed;
+    top: 0; /* Asegura que empiece arriba del todo */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100vh; /* CLAVE: Ocupa el 100% del alto de la pantalla del móvil */
+    background: var(--earth); /* Fondo totalmente opaco para tapar el video */
+    
+    /* Configuración para centrar los elementos en toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
     align-items: center;
-    justify-content: center; /* Centra los enlaces verticalmente */
-    padding: 1.5rem; 
-    gap: 1.5rem; 
-    /* CAMBIO CLAVE: z-index muy alto para superar el video y el navbar */
-    z-index: 20000; 
-    transform: translateX(100%); 
-    transition: transform var(--transition);
-    overflow-y: auto;
+    gap: 2rem; /* Espaciado entre los botones del menú */
+    
+    z-index: 20000; /* Por encima de cualquier texto o video del banner */
+    transform: translateX(100%); /* Oculto por defecto a la derecha */
+    transition: transform 0.4s ease-in-out;
+    overflow-y: auto; /* Permite scroll interno si hay muchos elementos */
   }
 
-  .nav-links.open { 
-    transform: translateX(0); 
+  .nav-links.open {
+    transform: translateX(0); /* Se despliega al añadir la clase open */
   }
 
-  .nav-link { 
-    font-size: 1.5rem; /* Aumentamos el tamaño para que sea más fácil pulsar en móvil */
-    padding: 1rem; 
-    width: 100%;
+  /* Ajuste de los enlaces para que se vean grandes y centrados */
+  .nav-link {
+    font-size: 1.8rem; /* Tamaño de letra aumentado para facilitar el toque */
+    color: var(--white);
+    width: auto;
     text-align: center;
+    padding: 0.5rem 0;
   }
 
   /* Ocultamos el dropdown en móvil para que no se amontone, o lo hacemos vertical */
