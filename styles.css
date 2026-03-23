@@ -698,27 +698,24 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
 
 .nav-links {
     position: fixed;
-    top: 0; /* Asegura que empiece arriba del todo */
+    top: 0;
     left: 0;
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100vh; /* CLAVE: Ocupa el 100% del alto de la pantalla del móvil */
-    background: var(--earth); /* Fondo totalmente opaco para tapar el video */
-    
-    /* Configuración para centrar los elementos en toda la pantalla */
+    width: 100%;
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    background: #1E1508; /* Color sólido 'earth' para ocultar la página de fondo */
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    gap: 2rem; /* Espaciado entre los botones del menú */
-    
-    z-index: 20000; /* Por encima de cualquier texto o video del banner */
-    transform: translateX(100%); /* Oculto por defecto a la derecha */
-    transition: transform 0.4s ease-in-out;
-    overflow-y: auto; /* Permite scroll interno si hay muchos elementos */
+    justify-content: center; /* Centra todo verticalmente */
+    align-items: center; /* Centra todo horizontalmente */
+    z-index: 20000; /* Por encima de cualquier otro elemento */
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 2rem;
+    overflow: hidden; /* Evita el scroll dentro del menú */
   }
 
   .nav-links.open {
-    transform: translateX(0); /* Se despliega al añadir la clase open */
+    transform: translateX(0);
   }
 
   /* Ajuste de los enlaces para que se vean grandes y centrados */
@@ -730,29 +727,38 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
     padding: 0.5rem 0;
   }
 
-  /* Ocultamos el dropdown en móvil para que no se amontone, o lo hacemos vertical */
-  .dropdown { 
-    position: static; 
-    opacity: 1; 
-    pointer-events: all; 
-    transform: none; 
-    box-shadow: none; 
-    border: none; 
-    background: rgba(255,255,255,.05); 
-    border-radius: 4px; 
-    margin-top: .5rem;
+/* Ajuste del submenú para que no cree scroll */
+  .dropdown {
+    position: static;
+    background: rgba(255, 255, 255, 0.05);
     width: 100%;
+    opacity: 1;
+    pointer-events: all;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
   }
   
-  .dropdown li a { 
-    padding: .75rem; 
-    font-size: 1.1rem; 
+  .dropdown li a {
+    font-size: 1.1rem;
     text-align: center;
+    padding: 0.5rem;
   }
 
   .has-dropdown > .nav-link svg { display: none; }
-  .nav-cta { margin-top: 1rem; width: 80%; }
-}
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--earth) !important;
+    width: 80% !important; /* Ancho controlado para que no se pegue a los bordes */
+    max-width: 300px;
+    margin-top: 1.5rem;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
 
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-stat { border-right: none; border-bottom: 1px solid rgba(200,134,10,.15); }
