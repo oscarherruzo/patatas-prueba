@@ -126,7 +126,7 @@ address { font-style: normal; }
 
 /* Burger */
 .nav-burger {
-  display: none; flex-direction: column; gap: 5px;
+  display: flex; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 0.5rem;
   position: relative;
   z-index: 100000;
@@ -691,20 +691,22 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
   .topbar { display: none; }
   .nav-burger { display: flex; }
   .nav-links {
-    position: fixed; 
-    top: 0; /* Cambiado de var(--nav-h) a 0 para que cubra toda la pantalla */
-    left: 0; 
-    right: 0; 
+    position: fixed;
+    top: 0; /* Empieza desde arriba de la pantalla */
+    left: 0;
+    right: 0;
     bottom: 0;
-    background: var(--earth); 
+    /* CAMBIO CLAVE: Color sólido para que no se transparente el contenido de atrás */
+    background: #1E1508; /* El color 'earth' de tu paleta */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra los enlaces verticalmente */
+    justify-content: center;
     align-items: center;
     padding: 2rem;
-    z-index: 99998; /* Justo debajo del navbar para que el logo y el botón X se vean */
-    transform: translateX(100%); 
-    transition: transform var(--transition);
+    /* Prioridad alta para estar sobre el video y textos del hero */
+    z-index: 99998; 
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
   }
   .nav-links.open { transform: translateX(0); }
   .nav-link { font-size: 1rem; padding: .75rem 1rem; }
