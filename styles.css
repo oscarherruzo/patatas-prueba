@@ -126,7 +126,7 @@ address { font-style: normal; }
 
 /* Burger */
 .nav-burger {
-  display: flex; flex-direction: column; gap: 5px;
+  display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 0.5rem;
   position: relative;
   z-index: 100000;
@@ -690,6 +690,7 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
   :root { --nav-h: 60px; --topbar-h: 0px; }
   .topbar { display: none; }
   .nav-burger { display: flex; }
+
   .nav-links {
     position: fixed;
     top: 0; /* Empieza desde arriba de la pantalla */
