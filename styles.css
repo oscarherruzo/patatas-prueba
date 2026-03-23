@@ -680,10 +680,6 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
    RESPONSIVE
    ════════════════════════════════════════════ */
 
-/* ════════════════════════════════════════════
-   RESPONSIVE (Corregido: Alineación y Estilos)
-   ════════════════════════════════════════════ */
-
 @media (max-width: 1024px) {
   .calibres-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -696,31 +692,28 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
   :root { --nav-h: 60px; --topbar-h: 0px; }
   .topbar { display: none; }
   
-  /* Botón Burger / X alineado a la derecha */
   .nav-burger { 
     display: flex; 
-    z-index: 20001; 
+    z-index: 20001; /* Un nivel por encima de la lista para que la X sea visible */
     position: relative;
-    margin-left: auto;
   }
 
-  /* Contenedor del Menú Móvil - Ocupa todo el alto y bloquea el scroll */
-  .nav-links {
+.nav-links {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: var(--earth); /* Fondo sólido para ocultar la página */
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    background: var(--earth); /* Fondo sólido para que no se vea nada detrás */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end; /* Alineado a la derecha */
-    padding: 2rem 10% 2rem 2rem;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
     z-index: 20000;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    overflow: hidden; /* IMPORTANTE: Bloquea scroll */
+    padding: 2rem;
+    overflow: hidden; /* IMPORTANTE: Evita el scroll dentro del menú */
     margin: 0;
   }
 
@@ -728,64 +721,61 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
     transform: translateX(0);
   }
 
-  /* Enlaces del menú principal uniformes y alineados */
+  /* Ajuste de los enlaces para que se vean grandes y centrados */
   .nav-link {
-    font-size: 1.4rem;
-    padding: 0.8rem 0;
-    text-align: right;
+    font-size: 1.8rem; /* Tamaño de letra aumentado para facilitar el toque */
+    color: var(--white);
     width: auto;
-    color: var(--white) !important;
+    text-align: center;
+    padding: 0.5rem 0;
   }
 
-  /* Submenú de patatas uniforme con el fondo del menú */
+/* Ajuste del submenú para que no cree scroll */
   .dropdown {
     position: static;
-    background: transparent; /* Mismo fondo que el menú */
+    background: rgba(255, 255, 255, 0.05);
     width: 100%;
     opacity: 1;
     pointer-events: all;
     transform: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Alineado a la derecha */
-    gap: 0.4rem;
-    padding: 0.5rem 0;
-    border: none;
+    gap: 0.5rem;
+    padding: 1rem 0;
   }
   
   .dropdown li a {
     font-size: 1.1rem;
-    text-align: right;
-    padding: 0.4rem 0;
-    color: var(--gray-lt);
-    text-transform: uppercase;
+    text-align: center;
+    padding: 0.5rem;
   }
 
   .has-dropdown > .nav-link svg { display: none; }
-
-  /* Botón CTA compacto en una sola línea */
+/* 2. Botón de presupuesto en una sola línea */
   .nav-cta {
     background: var(--gold) !important;
     color: var(--earth) !important;
-    width: auto !important; 
-    min-width: 200px;
+    width: 90% !important; /* Ancho suficiente para una sola línea */
+    max-width: 400px;
     white-space: nowrap; /* CLAVE: Fuerza a que el texto no salte de línea */
-    text-align: center;
+    justify-content: center;
     margin-top: 2rem;
-    font-size: 1rem !important; 
-    padding: 0.8rem 1.5rem !important;
-    display: block !important;
-    border-radius: 4px;
+    font-size: 1.2rem !important; /* Ajuste opcional para asegurar que quepa */
+    padding: 1rem !important;
+    display: flex !important;
+    align-items: center;
   }
 
-  /* Ajustes de cuadrículas y secciones */
+
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-stat { border-right: none; border-bottom: 1px solid rgba(200,134,10,.15); }
+
   .cortes-grid { grid-template-columns: repeat(2, 1fr); }
   .prod-grid-home { grid-template-columns: repeat(2, 1fr); }
   .calibres-grid { grid-template-columns: repeat(2, 1fr); }
   .proceso-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
   .proceso-grid::before { display: none; }
+
   .product-detail { grid-template-columns: 1fr; }
   .envasado-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -805,6 +795,7 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
   .contact-form-col { padding: 1.5rem; }
   .about-badge { position: static; margin-top: 1rem; border-radius: var(--radius); }
 }
+
 /* ══════════════════════════════════════════════
    NOSOTROS — FIRMA, VALORES, PROCESO DETALLADO
    ══════════════════════════════════════════════ */
