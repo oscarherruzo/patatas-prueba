@@ -624,3 +624,284 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
   .firma-block { padding: 1.25rem; }
   .firma-nombre { font-size: 1.3rem; }
 }
+
+/* ════════════════════════════════════════════
+   PATATAS ANDÚJAR · MOBILE RESPONSIVE
+   Añadir AL FINAL de styles.css
+   ════════════════════════════════════════════ */
+
+/* ══ TABLET / MEDIUM (≤ 1024px) ══ */
+@media (max-width: 1024px) {
+
+  /* Grid de cortes: 3 columnas en tablet */
+  .cortes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* About: stack */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-badge {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  /* Product detail: stack */
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .product-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .prod-img-main,
+  .prod-img-sec {
+    aspect-ratio: 4/3;
+  }
+
+  /* Calibres: 2 cols en tablet */
+  .calibres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .calibres-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Envasado: stack */
+  .envasado-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .envasado-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Contacto: stack */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Footer: 2 cols */
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Proceso: 2x2 */
+  .proceso-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .proceso-grid::before { display: none; }
+
+  /* Hero stats: 2x2 */
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat:nth-child(2) { border-right: none; }
+
+}
+
+/* ══ MOBILE (≤ 640px) ══ */
+@media (max-width: 640px) {
+
+  /* ─ Topbar ─ */
+  .topbar-inner {
+    flex-direction: column;
+    gap: 0.2rem;
+    height: auto;
+    padding: 0.45rem 5vw;
+    font-size: 0.68rem;
+  }
+  .topbar-phones .sep { display: none; }
+  .topbar-phones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 0.75rem;
+  }
+  :root { --topbar-h: 52px; }
+
+  /* ─ Hero ─ */
+  .hero { min-height: 100svh; }
+  .hero-content {
+    padding: 0 5vw 2rem;
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+  .hero-desc { font-size: 0.92rem; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions .btn { text-align: center; }
+
+  /* Hero stats: 2x2 */
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat {
+    padding: 1rem 0.75rem;
+    border-right: 1px solid rgba(200,134,10,.15) !important;
+  }
+  .hero-stat:nth-child(2n) { border-right: none !important; }
+  .hero-stat:nth-child(1),
+  .hero-stat:nth-child(2) { border-bottom: 1px solid rgba(200,134,10,.15); }
+  .stat-n { font-size: 2rem; }
+  .stat-l { font-size: 0.65rem; }
+
+  /* ─ Strip ─ */
+  .strip-track { font-size: 0.7rem; gap: 1rem; }
+
+  /* ─ Sections ─ */
+  .section { padding: 3rem 0; }
+  .section-head { margin-bottom: 2.25rem; }
+  .section-title { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+
+  /* ─ Cortes grid: 2 columnas ─ */
+  .cortes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .corte-info { padding: 0.75rem 0.85rem 1rem; }
+  .corte-name { font-size: 0.92rem; }
+  .corte-desc { font-size: 0.72rem; }
+
+  /* ─ Page heroes ─ */
+  .page-hero { min-height: 50vw; }
+  .page-hero-sm { min-height: 200px; }
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 3rem 5vw 2.5rem;
+    gap: 1.5rem;
+  }
+  .page-hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+  .page-hero-product { display: none; } /* ocultar imagen producto en hero mobile */
+
+  /* ─ About ─ */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-img { aspect-ratio: 16/9; }
+  .about-badge {
+    position: static;
+    margin-top: 1rem;
+    display: inline-block;
+  }
+
+  /* ─ Proceso ─ */
+  .proceso-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .proceso-grid::before { display: none; }
+  .proceso-step { padding: 0 0.5rem; }
+  .paso-num { margin-bottom: 1rem; }
+
+  /* ─ Product detail ─ */
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .product-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .prod-img-sec { display: none; } /* Solo imagen principal en mobile */
+
+  /* ─ Calibres ─ */
+  .calibres-grid,
+  .calibres-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .calibre-tag { margin: 1rem 1rem 0.4rem; }
+  .calibre-title { font-size: 1.1rem; padding: 0 1rem 0.3rem; }
+  .calibre-desc { font-size: 0.78rem; padding: 0 1rem; }
+  .calibre-uses { font-size: 0.73rem; padding: 0.6rem 1rem 1.1rem; }
+
+  /* ─ Envasado ─ */
+  .envasado-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .envasado-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .envasado-img-sec { display: none; }
+
+  /* ─ Valores ─ */
+  .valores-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* ─ Contacto ─ */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-form-col {
+    padding: 1.5rem 1.25rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* ─ Footer ─ */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 5vw;
+  }
+  .footer-logo-img { height: 42px; }
+  .footer-desc { max-width: 100%; }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  /* ─ Nosotros ─ */
+  .proceso-detalle::before { display: none; }
+  .pd-step {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .pd-num { width: 3.25rem; height: 3.25rem; font-size: 1.1rem; }
+  .firma-block { padding: 1.25rem; }
+  .firma-nombre { font-size: 1.3rem; }
+
+  /* ─ Global overflow guard ─ */
+  body { overflow-x: hidden; }
+  main, .page { overflow-x: hidden; }
+}
+
+/* ══ PEQUEÑO (≤ 380px) ══ */
+@media (max-width: 380px) {
+  .cortes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  .corte-name { font-size: 0.82rem; }
+  .hero-title { font-size: 2.6rem; }
+  .calibres-grid,
+  .calibres-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
