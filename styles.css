@@ -689,20 +689,67 @@ footer { background: #130C03; border-top: 2px solid var(--gold-dk); }
 @media (max-width: 900px) {
   :root { --nav-h: 60px; --topbar-h: 0px; }
   .topbar { display: none; }
-  .nav-burger { display: flex; }
-  .nav-links {
-    position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
-    background: var(--earth); flex-direction: column; align-items: stretch;
-    padding: 1.5rem; gap: .25rem; overflow-y: auto;
-    transform: translateX(100%); transition: transform var(--transition);
-    z-index: 198;
+  
+  .nav-burger { 
+    display: flex; 
+    z-index: 20001; /* Un nivel por encima de la lista para que la X sea visible */
+    position: relative;
   }
-  .nav-links.open { transform: translateX(0); }
-  .nav-link { font-size: 1rem; padding: .75rem 1rem; }
-  .dropdown { position: static; opacity: 1; pointer-events: all; transform: none; box-shadow: none; border: none; background: rgba(255,255,255,.05); border-radius: 4px; margin-top: .25rem; }
-  .dropdown li a { padding: .5rem 1.5rem; font-size: .9rem; }
+
+  .nav-links {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    /* CAMBIO CLAVE: Fondo 100% opaco usando tu color tierra */
+    background: var(--earth); 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; /* Centra los enlaces verticalmente */
+    padding: 1.5rem; 
+    gap: 1.5rem; 
+    /* CAMBIO CLAVE: z-index muy alto para superar el video y el navbar */
+    z-index: 20000; 
+    transform: translateX(100%); 
+    transition: transform var(--transition);
+    overflow-y: auto;
+  }
+
+  .nav-links.open { 
+    transform: translateX(0); 
+  }
+
+  .nav-link { 
+    font-size: 1.5rem; /* Aumentamos el tamaño para que sea más fácil pulsar en móvil */
+    padding: 1rem; 
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ocultamos el dropdown en móvil para que no se amontone, o lo hacemos vertical */
+  .dropdown { 
+    position: static; 
+    opacity: 1; 
+    pointer-events: all; 
+    transform: none; 
+    box-shadow: none; 
+    border: none; 
+    background: rgba(255,255,255,.05); 
+    border-radius: 4px; 
+    margin-top: .5rem;
+    width: 100%;
+  }
+  
+  .dropdown li a { 
+    padding: .75rem; 
+    font-size: 1.1rem; 
+    text-align: center;
+  }
+
   .has-dropdown > .nav-link svg { display: none; }
-  .nav-cta { margin-top: .5rem; text-align: center; justify-content: center; }
+  .nav-cta { margin-top: 1rem; width: 80%; }
+}
 
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-stat { border-right: none; border-bottom: 1px solid rgba(200,134,10,.15); }
